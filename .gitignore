@@ -41,3 +41,6 @@ example
 # generated native folders
 /ios
 /android
+
+# variables de entorno locales (cada quien pone la IP de su Mac)
+.env
