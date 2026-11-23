@@ -50,6 +50,20 @@ src/
    ```
    ```
    EXPO_PUBLIC_API_URL=http://<IP_DEL_MAC>:5300
+
+      **En Windows**, en vez de `cp` y `ipconfig getifaddr en0`:
+   ```powershell
+   copy .env.example .env
+   ipconfig
+   ```
+   Usa la dirección **IPv4** de tu adaptador Wi-Fi:
+   ```
+   EXPO_PUBLIC_API_URL=http://<IP_DE_LA_PC>:5300
+   ```
+   Si el teléfono no conecta con la API, abre el puerto 5300 en el firewall (PowerShell como administrador):
+   ```powershell
+   New-NetFirewallRule -DisplayName "GoatJersey API 5300" -Direction Inbound -Protocol TCP -LocalPort 5300 -Action Allow
+   ```
    ```
 4. Arranca Expo y escanea el QR con Expo Go (el teléfono y la computadora deben estar en la misma red Wi-Fi):
    ```bash
