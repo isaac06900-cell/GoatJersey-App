@@ -18,12 +18,13 @@ function RootNavigator() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      {/* Con sesión: pantalla principal. Sin sesión, cualquier intento de entrar manda al login */}
+      {/* Con sesión: pestañas y formulario de jersey. Sin sesión, cualquier intento de entrar manda al login */}
       <Stack.Protected guard={status === 'authenticated'} redirectTo="/login">
-        <Stack.Screen name="index" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="jersey" />
       </Stack.Protected>
 
-      {/* Sin sesión: login y registro. Con sesión, mandan a la pantalla principal */}
+      {/* Sin sesión: login y registro. Con sesión, mandan a la pantalla de inicio */}
       <Stack.Protected guard={status === 'unauthenticated'} redirectTo="/">
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
